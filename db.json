@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "title": "hello ",
+      "category": "world ",
+      "description": "aaaa",
+      "image": "hghdagdasgdhasdgasd",
+      "price": 2222,
+      "id": 1
+    }
+  ]
+}
