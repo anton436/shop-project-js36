@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import AboutPage from '../pages/AboutPage';
 import AdminPage from '../pages/AdminPage';
 import ContactPage from '../pages/ContactPage';
+import EditPage from '../pages/EditPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProductPage from '../pages/ProductPage';
@@ -14,6 +15,7 @@ const PUBLIC_ROUTES = [
   { id: 4, link: '/about', element: <AboutPage /> },
   { id: 5, link: '/admin', element: <AdminPage /> },
   { id: 6, link: '*', element: <NotFoundPage /> },
+  { id: 7, link: '/edit/:id', element: <EditPage /> },
 ];
 
 const MainRoutes = () => {
