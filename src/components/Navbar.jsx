@@ -43,9 +43,9 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar style={{backgroundColor: 'black', color: 'white'}} position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar style={{color: 'black'}} disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -57,12 +57,13 @@ function Navbar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
+              fontSize: 40,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            SHOP.CO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
