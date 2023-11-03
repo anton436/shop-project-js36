@@ -58,7 +58,6 @@ export default function ProductCard({item}) {
           <AddShoppingCartIcon/>
         </IconButton>
         </ThemeProvider>
-        
       </CardActions>
       </Card>
     // <Card sx={{ width: {md: "30vw", lg: "19vw"},  height: 400, margin: '2%', borderRadius: "10%"}}>

@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useReducer } from 'react';
 import { ACTIONS } from '../helpers/consts';
 import { calcTotalPrice, getLocalStorage } from '../helpers/functions';
@@ -46,7 +47,6 @@ const CartContextProvider = ({ children }) => {
     // обновляем состояние
     dispatch({ type: ACTIONS.GET_CART, payload: cart });
   };
-
   // функция для добавления товара в корзину
   const addProductToCart = (product) => {
     // получаем содержимое из хранилища под ключом cart
