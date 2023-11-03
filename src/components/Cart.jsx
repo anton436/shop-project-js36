@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useCart } from '../../contexts/CartContextProvider';
+import { useCart } from '../contexts/CartContextProvider';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -21,12 +21,11 @@ const rows = [
 ];
 
 export default function Cart() {
-  const { cart, getCart } = useCart();
-
-  React.useEffect(() => {
-    getCart();
-  }, []);
-
+    const{cart, getCart} = useCart()
+    React.useEffect(()=>{
+        getCart()
+    }, [])
+    console.log(cart);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
