@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "title": "shirt",
+      "category": "sgirt",
+      "description": "shirt",
+      "price": 700,
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "id": 1
+    },
+    {
+      "title": "shirt",
+      "category": "sgirt",
+      "description": "shirt",
+      "price": 1000,
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "id": 2
+    },
+    {
+      "title": "shirt",
+      "category": "sgirt",
+      "description": "shirt",
+      "price": 983,
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "id": 3
+    }
+  ]
+}
