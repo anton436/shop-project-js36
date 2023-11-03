@@ -7,6 +7,7 @@ import EditPage from '../pages/EditPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProductPage from '../pages/ProductPage';
+import CartPage from '../pages/CartPage';
 
 const PUBLIC_ROUTES = [
   { id: 1, link: '/', element: <HomePage /> },
@@ -16,6 +17,7 @@ const PUBLIC_ROUTES = [
   { id: 5, link: '/admin', element: <AdminPage /> },
   { id: 6, link: '*', element: <NotFoundPage /> },
   { id: 7, link: '/edit/:id', element: <EditPage /> },
+  { id: 8, link: '/cart', element: < CartPage/> },
 ];
 
 const MainRoutes = () => {
