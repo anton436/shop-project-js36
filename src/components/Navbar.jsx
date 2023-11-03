@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
   { id: 1, title: 'Products', link: '/products' },
@@ -133,6 +134,11 @@ function Navbar() {
               </Link>
             ))}
           </Box>
+          <Link to={'/cart'}>
+            <IconButton>
+              <ShoppingCartIcon sx={{ color: 'white' }} />
+            </IconButton>
+          </Link>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
