@@ -5,9 +5,6 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import ProductContextProvider from './contexts/ProductContextProvider';
 import CartContextProvider from './contexts/CartContextProvider';
-import { BrowserRouter } from 'react-router-dom';
-import ProductContextProvider from './contexts/ProductContextProvider';
-import CartContextProvider from './contexts/CartContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

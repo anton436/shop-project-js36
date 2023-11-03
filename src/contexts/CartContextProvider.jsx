@@ -21,35 +21,43 @@ const reducer = (state=INIT_STATE, action) => {
 
 const CartContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
+    //функция для получения продуктов добавленных в корзину из хранилища
     const getCart = () => {
+        // получаем данные из localStorage
         let cart = getLocalStorage()
+        // проверка на наличие данных под ключом cart в localStorage
         if(!cart){
+            // перемещаем данные в случае если в cart лежит null
             localStorage.setItem('cart', JSON.stringify({
                 products:[], 
                 totalPrice: 0,
             }))
+            // перезаписываем переменнную cart c null на объект
             cart = {
                 products: [],
                 totalPrice: 0
             }
         }
+        // обновляем состояние
         dispatch({type: ACTIONS.GET_CART, payload: cart})
     }
+    // функция для добавления товара в корзину
     const addProductToCart = (product) => {
+        // получаем содержимое из хранилища под ключом cart
         let cart = getLocalStorage()
-
+        // проверка на существование данных в хранилище под ключом cart
         if(!cart) {
             cart = {products: [], totalPrice: 0}
         }
-
+        // создаем объект, который добавим в localStorage в массив cart.products
         let newProduct = {
             item: product,
             count: 1,
             subPrice: +product.price,
         }
-
+        // проверяем есть ли уже продукт который хотим добавитб в корзину
         let productToFind = cart.products.filter((elem) => elem.item.id === product.id)
-        
+        // если товар уже добавлен в корзину, то удаляем его из массива cart.products через фильтр, в противном случае добавляем его в cart.products
         if(productToFind.length === 0){
             cart.products.push(newProduct)
         }else{
@@ -57,11 +65,14 @@ const CartContextProvider = ({children}) => {
                 (elem) => elem.item.id !== product.id
             )
         }
+        //  пересчитываем totalPrice
         cart.totalPrice = calcTotalPrice(cart.products)
-
+        // обновляем данные в localstorage
         localStorage.setItem('cart', JSON.stringify(cart))
+        //  обновляеи состояние
         dispatch({type:ACTIONS.GET_CART, payload: cart})
     }
+    // функция для проверки на наличие товара в корзине
     const checkProductInCart = (id) => {
         let cart = getLocalStorage()
         if (cart){
