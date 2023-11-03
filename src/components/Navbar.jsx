@@ -16,10 +16,10 @@ import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
-  { id: 1, title: 'Products', link: '/products' },
-  { id: 2, title: 'About', link: '/about' },
-  { id: 3, title: 'Contacts', link: '/contacts' },
-  { id: 4, title: 'Admin', link: '/admin' },
+  {id: 1, title: 'Products', link: '/products'},
+  {id: 2, title: 'About', link: '/about'},
+  {id: 3, title: 'Contacts', link: '/contacts'},
+  {id: 4, title: 'Admin', link: '/admin'}
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -95,10 +95,10 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <Link key={page.id} to={page.link}>
+                <Link key={page.id} to={page.link} >
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page.title}</Typography>
-                  </MenuItem>
+                  <Typography textAlign="center">{page.title}</Typography>
+                </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -125,21 +125,16 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link key={page.id} to={page.link}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page.title}
-                </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.title}
+              </Button>
               </Link>
             ))}
           </Box>
-          <Link to={'/cart'}>
-            <IconButton>
-              <ShoppingCartIcon sx={{ color: 'white' }} />
-            </IconButton>
-          </Link>
-
+                <Link to={'/cart'}><IconButton><ShoppingCartIcon sx={{color: 'white'}}/></IconButton></Link>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
