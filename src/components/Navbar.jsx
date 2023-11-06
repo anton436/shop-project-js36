@@ -14,6 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
+import { useCart } from '../contexts/CartContextProvider';
+
 
 const pages = [
   {id: 1, title: 'Products', link: '/products'},
@@ -23,9 +26,16 @@ const pages = [
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {getProductsCountInCart, addProductToCart} = useCart()
+  const [badgeCount, setBadgeCount] = React.useState(0)
+
+  React.useEffect(() => {
+    setBadgeCount(getProductsCountInCart())
+  }, [addProductToCart])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -135,7 +145,11 @@ function Navbar() {
               </Link>
             ))}
           </Box>
-                <Link to={'/cart'}><IconButton><ShoppingCartIcon sx={{color: 'white'}}/></IconButton></Link>
+                <Link to={'/cart'}>
+                  <Badge badgeContent={badgeCount} color="success">
+                  <ShoppingCartIcon sx={{color: 'white'}} />
+                  </Badge>
+                  </Link>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

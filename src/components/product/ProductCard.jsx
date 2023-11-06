@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import { useCart } from '../../contexts/CartContextProvider';
-import { Rating, Stack, colors } from '@mui/material';
+import { Rating, Stack } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -60,33 +60,5 @@ export default function ProductCard({item}) {
         </ThemeProvider>
       </CardActions>
       </Card>
-    // <Card sx={{ width: {md: "30vw", lg: "19vw"},  height: 400, margin: '2%', borderRadius: "10%"}}>
-    //   <CardMedia
-    //     sx={{ height: 240 }}
-    //     image={item.image}
-    //     title="green iguana"
-    //   />
-    //   <CardContent>
-    //     <Typography gutterBottom variant="h5" component="div">
-    //       {item.title}
-    //     </Typography>
-    //     <Typography variant="body2" color="text.secondary">
-    //       {item.price} $
-    //     </Typography>
-    //   </CardContent>
-    //   <CardActions>
-    //     <Button size="small" onClick={() => deleteProduct(item.id)}>
-    //       Delete
-    //     </Button>
-    //     <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
-    //       Edit
-    //     </Button>
-    //     <IconButton onClick={() => addProductToCart(item)}>
-    //       <AddShoppingCartIcon
-    //         color={checkProductInCart(item.id) ? 'primary' : ''}
-    //       />
-    //     </IconButton>
-    //   </CardActions>
-    // </Card>
   );
 }

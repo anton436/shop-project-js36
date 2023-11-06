@@ -17,3 +17,8 @@ export const calcTotalPrice = (products) => {
 export const calcSubPrice = (product) => {
   return +product.item.price * product.count;
 };
+
+export const getProductsCountInCart = () => {
+  let cart = getLocalStorage()
+  return cart ? cart.products.length : 0
+}

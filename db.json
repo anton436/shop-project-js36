@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "title": "AAAA",
-      "category": "t-shirt",
-      "description": "descri",
-      "image": "https://raven.contrado.app/resources/images/2020-10/155441/custom-t-shirt-990337_l.jpeg?w=700&h=700&auto=format&fit=crop",
-      "price": 50,
-      "id": 3
-    },
-    {
       "title": "sadnslandl",
       "category": "sadasd",
       "description": "asdasd",
@@ -45,7 +37,7 @@
       "category": "sadasd",
       "description": "asdasd",
       "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
+      "price": 123,
       "id": 8
     },
     {
