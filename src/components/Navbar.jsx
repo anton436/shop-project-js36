@@ -17,25 +17,25 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { useCart } from '../contexts/CartContextProvider';
 
+
 const pages = [
-  { id: 1, title: 'Products', link: '/products' },
-  { id: 2, title: 'About', link: '/about' },
-  { id: 3, title: 'Contacts', link: '/contacts' },
-  { id: 4, title: 'Admin', link: '/admin' },
+  {id: 1, title: 'Products', link: '/products'},
+  {id: 2, title: 'About', link: '/about'},
+  {id: 3, title: 'Contacts', link: '/contacts'},
+  {id: 4, title: 'Admin', link: '/admin'}
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
 function Navbar() {
-  const { getProductsCountInCart, addProductToCart } = useCart();
-
-  const [badgeCount, setBadgeCount] = React.useState(0);
-
-  React.useEffect(() => {
-    setBadgeCount(getProductsCountInCart());
-  }, [addProductToCart]);
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {getProductsCountInCart, addProductToCart} = useCart()
+  const [badgeCount, setBadgeCount] = React.useState(0)
+
+  React.useEffect(() => {
+    setBadgeCount(getProductsCountInCart())
+  }, [addProductToCart])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -53,12 +53,9 @@ function Navbar() {
   };
 
   return (
-    <AppBar
-      style={{ backgroundColor: 'black', color: 'white' }}
-      position="static"
-    >
+    <AppBar style={{backgroundColor: 'black', color: 'white'}} position="static">
       <Container maxWidth="xl">
-        <Toolbar style={{ color: 'black' }} disableGutters>
+        <Toolbar style={{color: 'black'}} disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -109,10 +106,10 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <Link key={page.id} to={page.link}>
+                <Link key={page.id} to={page.link} >
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page.title}</Typography>
-                  </MenuItem>
+                  <Typography textAlign="center">{page.title}</Typography>
+                </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -139,22 +136,20 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link key={page.id} to={page.link}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page.title}
-                </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.title}
+              </Button>
               </Link>
             ))}
           </Box>
-
-          <Link to={'/cart'}>
-            <Badge badgeContent={badgeCount} color="primary">
-              <ShoppingCartIcon sx={{ color: 'white' }} />
-            </Badge>
-          </Link>
-
+                <Link to={'/cart'}>
+                  <Badge badgeContent={badgeCount} color="success">
+                  <ShoppingCartIcon sx={{color: 'white'}} />
+                  </Badge>
+                  </Link>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

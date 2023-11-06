@@ -140,8 +140,8 @@ const CartContextProvider = ({ children }) => {
     dispatch({
       type: ACTIONS.GET_CART,
       payload: cart,
-    });
-  };
+    })
+  }
 
   const values = {
     getCart,
@@ -150,7 +150,7 @@ const CartContextProvider = ({ children }) => {
     checkProductInCart,
     changeProductCount,
     deleteProductFromCart,
-    getProductsCountInCart,
+    getProductsCountInCart
   };
   return <cartContext.Provider value={values}>{children}</cartContext.Provider>;
 };

@@ -10,8 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import { useCart } from '../../contexts/CartContextProvider';
-import { Rating, Stack, colors } from '@mui/material';
+import { CardActionArea, Rating, Stack } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Details from '../Details';
 
 const theme = createTheme({
   palette: {
@@ -28,13 +29,21 @@ export default function ProductCard({item}) {
     const {deleteProduct} = useProducts()
     const {addProductToCart, checkProductInCart} = useCart()
     const navigate = useNavigate()
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Card sx={{  width: {md: "30vw", lg: "19vw"} , height: 450, boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: 0 }, margin: "2%"}}>
-      <CardMedia
+      <CardActionArea onClick={handleOpen}>
+        <CardMedia
         sx={{ height: 240,  borderRadius: 4, }}
         image={item.image}
         title="green iguana"
       />
+      </CardActionArea>
+      
       <CardContent sx={{padding: '20px 5px 0px 5px'}}>
         <Typography gutterBottom variant="h5" component="div" fontSize='20' fontWeight={700}>
           {item.title}
@@ -59,34 +68,12 @@ export default function ProductCard({item}) {
         </IconButton>
         </ThemeProvider>
       </CardActions>
+       <Details
+       image={item.image}
+       title={item.title}
+        description={item.description} 
+        handleClose={handleClose} 
+        open={open}/>
       </Card>
-    // <Card sx={{ width: {md: "30vw", lg: "19vw"},  height: 400, margin: '2%', borderRadius: "10%"}}>
-    //   <CardMedia
-    //     sx={{ height: 240 }}
-    //     image={item.image}
-    //     title="green iguana"
-    //   />
-    //   <CardContent>
-    //     <Typography gutterBottom variant="h5" component="div">
-    //       {item.title}
-    //     </Typography>
-    //     <Typography variant="body2" color="text.secondary">
-    //       {item.price} $
-    //     </Typography>
-    //   </CardContent>
-    //   <CardActions>
-    //     <Button size="small" onClick={() => deleteProduct(item.id)}>
-    //       Delete
-    //     </Button>
-    //     <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
-    //       Edit
-    //     </Button>
-    //     <IconButton onClick={() => addProductToCart(item)}>
-    //       <AddShoppingCartIcon
-    //         color={checkProductInCart(item.id) ? 'primary' : ''}
-    //       />
-    //     </IconButton>
-    //   </CardActions>
-    // </Card>
   );
 }
