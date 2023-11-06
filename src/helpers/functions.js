@@ -1,4 +1,3 @@
-
 //функция для получения данных из хранилища под ключом cart
 export const getLocalStorage = () => {
   const cart = JSON.parse(localStorage.getItem('cart'));
@@ -19,6 +18,6 @@ export const calcSubPrice = (product) => {
 };
 
 export const getProductsCountInCart = () => {
-  let cart = getLocalStorage()
-  return cart ? cart.products.length : 0
-}
+  let cart = getLocalStorage();
+  return cart ? cart.products.length : 0;
+};
