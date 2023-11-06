@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { useCart } from '../../contexts/CartContextProvider';
 import { CardActionArea, Rating, Stack } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Details from '../Details';
+import Detail from '../Detail'
 
 const theme = createTheme({
   palette: {
@@ -68,10 +68,15 @@ export default function ProductCard({item}) {
         </IconButton>
         </ThemeProvider>
       </CardActions>
-       <Details
+
+       <Detail
+       id={item.id}
+       item={item}
+       category={item.category}
        image={item.image}
        title={item.title}
         description={item.description} 
+        price = {item.price}
         handleClose={handleClose} 
         open={open}/>
       </Card>
