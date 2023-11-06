@@ -1,52 +1,44 @@
 {
   "products": [
     {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "asdasd",
+      "title": "t-shirt 1",
+      "category": "t-shirt",
+      "description": "some description",
       "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
+      "price": 200,
+      "id": 1
+    },
+    {
+      "title": "t-shirt 2",
+      "category": "t-shirt",
+      "description": "some description",
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "price": 200,
+      "id": 2
+    },
+    {
+      "title": "t-shirt 2",
+      "category": "t-shirt",
+      "description": "some description 2",
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "price": 200,
+      "id": 3
+    },
+    {
+      "title": "t-shirt 3",
+      "category": "t-shirt",
+      "description": "some description 3",
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "price": 200,
       "id": 4
     },
     {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "edited",
+      "title": "t-shirt 4",
+      "category": "t-shirt",
+      "description": "some description 4",
       "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
+      "price": 202,
       "id": 5
-    },
-    {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "asdasd",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
-      "id": 6
-    },
-    {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "asdasd",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
-      "id": 7
-    },
-    {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "asdasd",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 123,
-      "id": 8
-    },
-    {
-      "title": "sadnslandl",
-      "category": "sadasd",
-      "description": "asdasd",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 1233,
-      "id": 9
     }
   ]
 }

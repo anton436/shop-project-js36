@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { Button, IconButton } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useCart } from '../contexts/CartContextProvider';
+
 
 const styles = {
   position: 'absolute',
@@ -17,7 +19,8 @@ const styles = {
   display: 'flex'
 };
 
-export default function Details({image, title, description, open, handleClose}) {
+export default function Detail({image, title, category, description, price, open, handleClose, item}) {
+  const {checkProductInCart, addProductToCart} = useCart()
   
   return (
     <div>
@@ -30,7 +33,12 @@ export default function Details({image, title, description, open, handleClose}) 
         <Box sx={styles}>
             <div><img width={300} src={image} alt="" /></div>
             <div><h1>{title}</h1>
-            description: {description}</div>
+            <p>description: {description}</p>
+            <p>category: {category}</p>
+            </div>
+            <div style={{marginTop: 'auto'}}>
+              {checkProductInCart(item.id) ? (<Button disabled={true}>Already in cart</Button>) : (<Button onClick={()=>addProductToCart(item)}>Buy for {price}$</Button>)}
+              </div>
         </Box>
       </Modal>
     </div>
