@@ -44,6 +44,29 @@ const AuthContextProvider = ({ children }) => {
       });
   };
 
+  const handleLogin = () => {
+    clearError();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch((err) => {
+        switch (err.code) {
+          case 'auth/user-disabled':
+          case 'auth/invalid-email':
+          case 'auth/user-not-found':
+            setEmailError(err.message);
+            break;
+
+          case 'auth/wrong-password':
+            setPasswordError(err.message);
+            break;
+
+          default:
+            break;
+        }
+      });
+  };
+
   const values = {
     user,
     email,
@@ -58,6 +81,7 @@ const AuthContextProvider = ({ children }) => {
     setHasAccount,
 
     handleRegister,
+    handleLogin,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

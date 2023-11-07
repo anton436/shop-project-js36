@@ -51,6 +51,7 @@ export default function Auth() {
     setHasAccount,
 
     handleRegister,
+    handleLogin,
   } = useAuth();
 
   const handleSubmit = (event) => {
@@ -77,8 +78,9 @@ export default function Auth() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
+
           <Typography component="h1" variant="h5">
-            Register Form
+            {hasAccount ? 'Login Form' : 'Register Form'}
           </Typography>
           <Box
             component="form"
@@ -113,25 +115,40 @@ export default function Auth() {
               autoComplete="current-password"
             />
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleRegister}
-            >
-              Register Now
-            </Button>
+            {hasAccount ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleLogin}
+              >
+                Login
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleRegister}
+              >
+                Register Now
+              </Button>
+            )}
+
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <Typography
+                  onClick={() => setHasAccount(!hasAccount)}
+                  variant="body2"
+                  sx={{ cursor: 'pointer', textDecoration: 'underline' }}
+                >
+                  {hasAccount
+                    ? `
+                    Don't have an account? Register Now`
+                    : 'Already have an account? Login'}
+                </Typography>
               </Grid>
             </Grid>
           </Box>
