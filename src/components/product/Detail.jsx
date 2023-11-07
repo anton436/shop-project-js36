@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Button, IconButton } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useCart } from '../contexts/CartContextProvider';
+import { useCart } from '../../contexts/CartContextProvider';
 
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  width: 700,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
