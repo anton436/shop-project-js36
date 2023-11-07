@@ -7,6 +7,7 @@ import prada from "./assets/prada-logo-1 1.svg";
 import versace from "./assets/veerc.svg";
 import zara from "./assets/zara-logo-1 1.svg";
 import "./HeaderHome.css";
+import { Link } from "react-router-dom";
 
 const HomePageHeader = () => {
   return (
@@ -20,12 +21,12 @@ const HomePageHeader = () => {
             style.
           </p>
 
-          <button className="btn">Shop Now</button>
+          <Link to={'/products'}><button className="btn">Shop Now</button></Link>
           <div>
             <ul className="brand">
-              <li className="brand-1">200+</li>
-              <li className="brand-2">2,000+</li>
-              <li>30,000+</li>
+              <li className="brand-text">200+</li>
+              <li className="brand-text">2,000+</li>
+              <li className="brand-text">30,000+</li>
             </ul>
           </div>
         </div>

@@ -172,11 +172,12 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              <Link to={'/auth'}>
+              <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Login</Typography>
                 </MenuItem>
-              ))}
+              </Link>
+                
             </Menu>
           </Box>
         </Toolbar>

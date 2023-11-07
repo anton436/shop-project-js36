@@ -9,6 +9,7 @@ import ContactPage from '../pages/ContactPage'
 import { Route, Routes } from 'react-router-dom'
 import EditPage from '../pages/EditPage'
 import CartPage from '../pages/CartPage'
+import AuthPage from '../pages/AuthPage'
 
 const PUBLIC_ROUTES = [
     {id:1, link: '/', element: <HomePage />},
@@ -19,6 +20,7 @@ const PUBLIC_ROUTES = [
     {id:6, link: '*', element: <NotFoundPages />},
     {id:7, link: '/edit/:id', element: <EditPage />},
     {id:8, link: '/cart', element: <CartPage />},
+    {id:9, link: '/auth', element: <AuthPage />},
 ]
 
 const MainRoutes = () => {

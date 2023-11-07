@@ -18,13 +18,13 @@ export default function NewArrivals() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4.3%'}}>
     <Card sx={{ width: 296, height: 450, boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: 0 }, flexWrap: 'wrap', gap: '12px'}}>
       <CardMedia
-        sx={{ height: 320, background: 'url(<path-to-image>), lightgray 50% / cover no-repeat', borderRadius: 4, }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ height: 320, background: ' lightgray 50% / cover no-repeat', borderRadius: 4, }}
+        image='https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/12377258/2020/9/11/ce1b7bcb-a65a-4eb0-a317-42ac02718f1e1599798741705UrbanoFashionPrintedMenRoundNeckDarkGreenT-Shirt1.jpg'
         title="green iguana"
       />
       <CardContent sx={{padding: '20px 5px'}}>
         <Typography gutterBottom variant="h5" component="div" fontSize='20' fontWeight={700}>
-          Lizard
+          Crockodile
         </Typography>
         <Stack spacing={1} margin='8px 0'>
         <Rating name="half-rating" defaultValue={0} precision={1} />
