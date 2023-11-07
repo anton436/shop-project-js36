@@ -16,7 +16,12 @@ import { useAuth } from '../../contexts/AuthContextProvider';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -32,23 +37,22 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function Auth() {
+  const {
+    user,
+    email,
+    password,
 
-    const  {
-        user,
-        email,
-        password,
+    emailError,
+    passwordError,
+    hasAccount,
 
-        emailError,
-        passwordError,
-        hasAccount,
+    setEmail,
+    setPassword,
+    setHasAccount,
 
-        setEmail,
-        setPassword,
-        setHasAccount,
-
-        handleRegister,
-        handleLogin
-    } = useAuth()
+    handleRegister,
+    handleLogin,
+  } = useAuth();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -74,14 +78,20 @@ export default function Auth() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
+
           <Typography component="h1" variant="h5">
             {hasAccount ? 'Login Form' : 'Register Form'}
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            helperText={emailError}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              helperText={emailError}
               margin="normal"
               required
               fullWidth
@@ -92,9 +102,9 @@ export default function Auth() {
               autoFocus
             />
             <TextField
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            helperText={passwordError}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              helperText={passwordError}
               margin="normal"
               required
               fullWidth
@@ -104,37 +114,41 @@ export default function Auth() {
               id="password"
               autoComplete="current-password"
             />
-            {hasAccount ? 
-            (<Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleLogin}
-            >
+
+            {hasAccount ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleLogin}
+              >
                 Login
-            </Button> )
-            :
-            (<Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleRegister}
-            >
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleRegister}
+              >
                 Register Now
-            </Button>)
-            }
+              </Button>
+            )}
+
             <Grid container>
               <Grid item>
                 <Typography
-                 onClick = {()=>setHasAccount(!hasAccount)} 
-                 variant='body2'
-                 sx={{cursor: 'pointer', textDecoration:'underline'}}>
-                    {hasAccount ? `Don't have an account? Register Now` : 
-                    `Already have an account? Login`}
+                  onClick={() => setHasAccount(!hasAccount)}
+                  variant="body2"
+                  sx={{ cursor: 'pointer', textDecoration: 'underline' }}
+                >
+                  {hasAccount
+                    ? `
+                    Don't have an account? Register Now`
+                    : 'Already have an account? Login'}
                 </Typography>
-                
               </Grid>
             </Grid>
           </Box>
