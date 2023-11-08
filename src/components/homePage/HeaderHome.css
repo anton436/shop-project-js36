@@ -37,15 +37,16 @@
     width: 100%;
     height: 660px;
     display: flex;
-  }
-  #star_1 {
-    position: absolute;
-    bottom: 300px;
-    left: 47.5rem;
+    position: relative;
   }
   #star_2 {
     position: absolute;
-    right: 7.375rem;
+    bottom: 300px;
+    left: 750px;
+  }
+  #star_1 {
+    position: absolute;
+    left: 1250px;
     bottom: 480px;
   }
   
@@ -91,16 +92,12 @@
     padding: 32px;
     margin-top: 19px;
   }
-  .brand-1 {
+  .brand-text {
     padding: 5px 10px;
     font-size: 50px;
     border-right: 1px solid #d0d0d0;
   }
-  .brand-2 {
-    padding: 5px 10px;
-    font-size: 50px;
-    border-right: 1px solid #d0d0d0;
-  }
+  
   .main-brands {
     width: 100%;
     height: 8.5em;
