@@ -16,16 +16,16 @@ import Detail from './Detail';
 import { useAuth } from '../../contexts/AuthContextProvider';
 import { ADMIN } from '../../helpers/consts';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#000',
-    },
-    secondary: {
-      main: '#b71c1c',
-    },
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#000',
+//     },
+//     secondary: {
+//       main: '#b71c1c',
+//     },
+//   },
+// });
 
 export default function ProductCard({ item }) {
   const {
@@ -80,7 +80,6 @@ export default function ProductCard({ item }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <ThemeProvider theme={theme}>
           {email === ADMIN ? (
             <>
               <Button
@@ -111,7 +110,6 @@ export default function ProductCard({ item }) {
               <AddShoppingCartIcon />
             </IconButton>
           )}
-        </ThemeProvider>
       </CardActions>
 
       <Detail
