@@ -14,6 +14,7 @@ const AuthContextProvider = ({ children }) => {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
 
+
   const clearInputs = () => {
     setEmail('');
     setPassword('');
@@ -69,21 +70,26 @@ const AuthContextProvider = ({ children }) => {
         }
       });
   };
-
   const handleLogout = () => {
-    fire.auth().signOut();
-  };
+        fire.auth().signOut();
+    }
 
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser('');
-      }
-    });
-  };
+    const authListener = () => {
+        fire.auth().onAuthStateChanged((user) => {
+            if(user) {
+              clearInputs()
+              setUser(user)
+            }
+            else{
+              setUser('')
+            }
+        })
+    }
+
+    useEffect(() => {
+        authListener();
+    }, [])
+
 
   useEffect(() => {
     authListener();

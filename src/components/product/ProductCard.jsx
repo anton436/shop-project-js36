@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { useCart } from '../../contexts/CartContextProvider';
 import { CardActionArea, Rating, Stack } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Detail from '../Detail';
+import Detail from './Detail';
 import { useAuth } from '../../contexts/AuthContextProvider';
 import { ADMIN } from '../../helpers/consts';
 
