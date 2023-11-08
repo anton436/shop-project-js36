@@ -24,7 +24,7 @@ const AddProduct = () => {
   };
 
   return (
-    <Box sx={{ width: '50vw', margin: '20px auto' }}>
+    <Box sx={{ width: '50vw', height: 500, margin: '20px auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <Typography variant="h4" align="center">
         ADMIN PAGE
       </Typography>
