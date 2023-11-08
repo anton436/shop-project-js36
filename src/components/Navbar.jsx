@@ -16,16 +16,22 @@ import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { useCart } from '../contexts/CartContextProvider';
+import { useAuth } from '../contexts/AuthContextProvider';
+import { ADMIN } from '../helpers/consts';
 
 const pages = [
   { id: 1, title: 'Products', link: '/products' },
   { id: 2, title: 'About', link: '/about' },
   { id: 3, title: 'Contacts', link: '/contacts' },
-  { id: 4, title: 'Admin', link: '/admin' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+  const {
+    handleLogout,
+    user: { email },
+  } = useAuth();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { getProductsCountInCart, addProductToCart } = useCart();
@@ -113,6 +119,13 @@ function Navbar() {
                   </MenuItem>
                 </Link>
               ))}
+              {email === ADMIN ? (
+                <Link to={'/admin'}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">ADMIN</Typography>
+                  </MenuItem>
+                </Link>
+              ) : null}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -145,7 +158,20 @@ function Navbar() {
                 </Button>
               </Link>
             ))}
+            {email === ADMIN ? (
+              <Link to={'/admin'}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  ADMIN
+                </Button>
+              </Link>
+            ) : null}
           </Box>
+          <Typography sx={{ color: 'white' }}>
+            {email ? `Hello, ${email}` : 'Hello, Guest'}
+          </Typography>
           <Link to={'/cart'}>
             <Badge badgeContent={badgeCount} color="success">
               <ShoppingCartIcon sx={{ color: 'white' }} />
@@ -173,11 +199,22 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <Link to={'/auth'}>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Login</Typography>
+              {email ? (
+                <MenuItem
+                  onClick={() => {
+                    handleLogout();
+                    handleCloseUserMenu();
+                  }}
+                >
+                  <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
-              </Link>
+              ) : (
+                <Link to={'/auth'}>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Login</Typography>
+                  </MenuItem>
+                </Link>
+              )}
             </Menu>
           </Box>
         </Toolbar>
