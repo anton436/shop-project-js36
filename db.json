@@ -39,6 +39,32 @@
       "image": "https://mackweldon.com/cdn/shop/products/M01T10-TN_Front.png?v=1680889907",
       "price": 100,
       "id": 6
+    },
+    {
+      "title": "wqewq",
+      "category": "eqwe",
+      "description": "23324",
+      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
+      "price": 23423,
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "name": "T-Shirt",
+      "id": 1
+    },
+    {
+      "name": "Jeans",
+      "id": 2
+    },
+    {
+      "name": "Dress",
+      "id": 3
+    },
+    {
+      "name": "Shirt",
+      "id": 4
     }
   ]
 }

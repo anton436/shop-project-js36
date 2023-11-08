@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { createContext, useContext, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ACTIONS, API } from '../helpers/consts';
+import { ACTIONS, API, API_CATEGORIES } from '../helpers/consts';
 
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -57,6 +57,10 @@ const ProductContextProvider = ({ children }) => {
     navigate('/products');
   };
 
+  const createCategory = async (newCategory) => {
+      await axios.post(API_CATEGORIES, newCategory)
+  }
+
   const values = {
     addProduct,
     getProducts,
@@ -66,6 +70,7 @@ const ProductContextProvider = ({ children }) => {
     getOneProduct,
     oneProduct: state.oneProduct,
     saveChanges,
+    createCategory
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>

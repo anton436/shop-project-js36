@@ -13,6 +13,8 @@ import { useCart } from '../../contexts/CartContextProvider';
 import { CardActionArea, Rating, Stack } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Detail from './Detail'
+import { useAuth } from '../../contexts/AuthContextProvider';
+import { ADMIN } from '../../helpers/consts';
 
 const theme = createTheme({
   palette: {
@@ -26,6 +28,7 @@ const theme = createTheme({
 });
 
 export default function ProductCard({item}) {
+  const {user: {email}} = useAuth()
     const {deleteProduct} = useProducts()
     const {addProductToCart, checkProductInCart} = useCart()
     const navigate = useNavigate()
@@ -57,15 +60,21 @@ export default function ProductCard({item}) {
       </CardContent>
       <CardActions>
         <ThemeProvider theme={theme}>
+          {email === ADMIN ? (
+          <>
           <Button color='secondary' variant='outlined' size="medium" onClick={() => deleteProduct(item.id)}>
           Delete
         </Button>
         <Button color='primary' variant="outlined" size="medium" onClick={() => navigate(`/edit/${item.id}`)}>
           Edit
         </Button>
-        <IconButton sx={{backgroundColor: checkProductInCart(item.id) ? "black": "", color: checkProductInCart(item.id) ? "white": ""}} onClick={() => addProductToCart(item)}>
+          </>) : (
+            <IconButton sx={{backgroundColor: checkProductInCart(item.id) ? "black": "", color: checkProductInCart(item.id) ? "white": ""}} onClick={() => addProductToCart(item)}>
           <AddShoppingCartIcon/>
         </IconButton>
+          )}
+          
+        
         </ThemeProvider>
       </CardActions>
 

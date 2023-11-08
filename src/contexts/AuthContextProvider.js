@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import fire from '../fire';
+import { useNavigate } from 'react-router-dom';
 
 export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
@@ -11,6 +12,8 @@ const AuthContextProvider = ({ children }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
+
+  const navigate = useNavigate()
 
   const clearInputs = () => {
     setEmail('');
@@ -49,6 +52,7 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(() => navigate('/'))
       .catch((err) => {
         switch (err.code) {
           case 'auth/user-disabled':
@@ -66,6 +70,25 @@ const AuthContextProvider = ({ children }) => {
         }
       });
   };
+  const handleLogout = () => {
+        fire.auth().signOut();
+    }
+
+    const authListener = () => {
+        fire.auth().onAuthStateChanged((user) => {
+            if(user) {
+              clearInputs()
+              setUser(user)
+            }
+            else{
+              setUser('')
+            }
+        })
+    }
+
+    useEffect(() => {
+        authListener();
+    }, [])
 
   const values = {
     user,
@@ -82,6 +105,7 @@ const AuthContextProvider = ({ children }) => {
 
     handleRegister,
     handleLogin,
+    handleLogout
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };
