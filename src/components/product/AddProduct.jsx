@@ -35,7 +35,7 @@ const AddProduct = () => {
         label="Title"
         variant="outlined"
       />
-      <CategorySelect/>
+      <CategorySelect />
       <TextField
         onChange={handleInput}
         fullWidth

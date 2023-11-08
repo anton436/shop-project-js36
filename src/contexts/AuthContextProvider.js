@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import fire from '../fire';
 import { useNavigate } from 'react-router-dom';
+import fire from '../fire';
 
 export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 
 const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +14,6 @@ const AuthContextProvider = ({ children }) => {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
 
-  const navigate = useNavigate()
 
   const clearInputs = () => {
     setEmail('');
@@ -90,6 +90,11 @@ const AuthContextProvider = ({ children }) => {
         authListener();
     }, [])
 
+
+  useEffect(() => {
+    authListener();
+  }, []);
+
   const values = {
     user,
     email,
@@ -105,7 +110,7 @@ const AuthContextProvider = ({ children }) => {
 
     handleRegister,
     handleLogin,
-    handleLogout
+    handleLogout,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

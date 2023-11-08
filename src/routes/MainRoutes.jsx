@@ -25,23 +25,27 @@ const PUBLIC_ROUTES = [
 const PRIVATE_ROUTES = [
   { id: 5, link: '/admin', element: <AdminPage /> },
   { id: 7, link: '/edit/:id', element: <EditPage /> },
-]
+];
 
 const MainRoutes = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
   return (
     <Routes>
       {PUBLIC_ROUTES.map((item) => (
         <Route key={item.id} path={item.link} element={item.element} />
       ))}
-      {user ? (PRIVATE_ROUTES.map(item => 
-      <Route 
-      key={item.id} 
-      path = {item.link} 
-      element={
-        user.email === ADMIN ? item.element : <Navigate to="*"/>}
-        />)) : (null)
-        }
+
+      {user
+        ? PRIVATE_ROUTES.map((item) => (
+            <Route
+              key={item.id}
+              path={item.link}
+              element={
+                user.email === ADMIN ? item.element : <Navigate to="*" />
+              }
+            />
+          ))
+        : null}
     </Routes>
   );
 };

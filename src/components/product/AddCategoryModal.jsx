@@ -41,7 +41,12 @@ export default function AddCategoryModal(props) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Добавить новую категорию
           </Typography>
-          <TextField fullWidth variant='outlined' required onChange={(e) => setCategory(e.target.value)}/>
+          <TextField
+            fullWidth
+            variant="outlined"
+            required
+            onChange={(e) => setCategory(e.target.value)}
+          />
           <Button onClick={handleAdd}>Добавить</Button>
           <Button onClick={handleClose}>Отменить</Button>
         </Box>

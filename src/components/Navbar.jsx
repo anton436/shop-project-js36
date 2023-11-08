@@ -22,12 +22,15 @@ import { ADMIN } from '../helpers/consts';
 const pages = [
   { id: 1, title: 'Products', link: '/products' },
   { id: 2, title: 'About', link: '/about' },
-  { id: 3, title: 'Contacts', link: '/contacts' }
+  { id: 3, title: 'Contacts', link: '/contacts' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
-  const {handleLogout, user: {email}} = useAuth()
+  const {
+    handleLogout,
+    user: { email },
+  } = useAuth();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -116,8 +119,8 @@ function Navbar() {
                   </MenuItem>
                 </Link>
               ))}
-              { email === ADMIN ? (
-                <Link to='/admin'>
+              {email === ADMIN ? (
+                <Link to={'/admin'}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">ADMIN</Typography>
                   </MenuItem>
@@ -156,7 +159,7 @@ function Navbar() {
               </Link>
             ))}
             {email === ADMIN ? (
-              <Link  to='/admin'>
+              <Link to={'/admin'}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -166,7 +169,9 @@ function Navbar() {
               </Link>
             ) : null}
           </Box>
-          <Typography sx={{color: 'white'}}>{email ? (`Hello, ${email}`) : ('Hello guest')}</Typography>
+          <Typography sx={{ color: 'white' }}>
+            {email ? `Hello, ${email}` : 'Hello, Guest'}
+          </Typography>
           <Link to={'/cart'}>
             <Badge badgeContent={badgeCount} color="success">
               <ShoppingCartIcon sx={{ color: 'white' }} />
@@ -195,18 +200,21 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {email ? (
-                <MenuItem onClick={() => {handleLogout() 
-                handleCloseUserMenu()}}>
+                <MenuItem
+                  onClick={() => {
+                    handleLogout();
+                    handleCloseUserMenu();
+                  }}
+                >
                   <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
               ) : (
                 <Link to={'/auth'}>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Login</Typography>
-                </MenuItem>
-              </Link>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Login</Typography>
+                  </MenuItem>
+                </Link>
               )}
-              
             </Menu>
           </Box>
         </Toolbar>

@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "title": "t-shirt 2",
-      "category": "t-shirt",
-      "description": "some description",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 200,
-      "id": 2
-    },
-    {
-      "title": "t-shirt 2",
-      "category": "t-shirt",
-      "description": "some description 2",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 200,
-      "id": 3
-    },
-    {
       "title": "t-shirt 3",
       "category": "t-shirt",
       "description": "some description 3",
@@ -51,20 +35,12 @@
   ],
   "categories": [
     {
-      "name": "T-Shirt",
+      "name": "T-shirt",
       "id": 1
     },
     {
-      "name": "Jeans",
+      "name": "Hoodie",
       "id": 2
-    },
-    {
-      "name": "Dress",
-      "id": 3
-    },
-    {
-      "name": "Shirt",
-      "id": 4
     }
   ]
 }

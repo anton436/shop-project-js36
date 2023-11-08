@@ -58,8 +58,8 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const createCategory = async (newCategory) => {
-      await axios.post(API_CATEGORIES, newCategory)
-  }
+    await axios.post(API_CATEGORIES, newCategory);
+  };
 
   const values = {
     addProduct,
@@ -70,7 +70,7 @@ const ProductContextProvider = ({ children }) => {
     getOneProduct,
     oneProduct: state.oneProduct,
     saveChanges,
-    createCategory
+    createCategory,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
