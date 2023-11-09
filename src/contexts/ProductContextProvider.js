@@ -9,6 +9,7 @@ export const useProducts = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   oneProduct: null,
+  categories: [],
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -18,6 +19,9 @@ const reducer = (state = INIT_STATE, action) => {
 
     case ACTIONS.GET_ONE_PRODUCT:
       return { ...state, oneProduct: action.payload };
+
+    case ACTIONS.GET_CATEGORIES:
+      return { ...state, categories: action.payload };
 
     default:
       return state;
@@ -35,7 +39,7 @@ const ProductContextProvider = ({ children }) => {
 
   //! READ
   const getProducts = async () => {
-    const result = await axios.get(API);
+    const result = await axios.get(`${API}${window.location.search}`);
     dispatch({ type: ACTIONS.GET_PRODUCTS, payload: result.data });
   };
 
@@ -57,9 +61,31 @@ const ProductContextProvider = ({ children }) => {
     navigate('/products');
   };
 
+  const getCategories = async () => {
+    const result = await axios.get(API_CATEGORIES);
+    dispatch({ type: ACTIONS.GET_CATEGORIES, payload: result.data });
+  };
+
   const createCategory = async (newCategory) => {
     await axios.post(API_CATEGORIES, newCategory);
+    getCategories();
   };
+
+  // FILTER & SORT
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(window.location.search);
+
+    if (value === 'all') {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+
+    const url = `${window.location.pathname}?${search.toString()}`;
+    navigate(url);
+  };
+
+  // FILTER & SORT
 
   const values = {
     addProduct,
@@ -71,6 +97,11 @@ const ProductContextProvider = ({ children }) => {
     oneProduct: state.oneProduct,
     saveChanges,
     createCategory,
+
+    getCategories,
+    categories: state.categories,
+
+    fetchByParams,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
