@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useProducts } from '../../contexts/ProductContextProvider';
+import CategorySelect from './CategorySelect';
 
 const AddProduct = () => {
   const { addProduct } = useProducts();
@@ -23,7 +24,7 @@ const AddProduct = () => {
   };
 
   return (
-    <Box sx={{ width: '50vw', margin: '20px auto' }}>
+    <Box sx={{ width: '50vw', height: 500, margin: '20px auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <Typography variant="h4" align="center">
         ADMIN PAGE
       </Typography>
@@ -34,13 +35,7 @@ const AddProduct = () => {
         label="Title"
         variant="outlined"
       />
-      <TextField
-        onChange={handleInput}
-        fullWidth
-        name="category"
-        label="Category"
-        variant="outlined"
-      />
+      <CategorySelect />
       <TextField
         onChange={handleInput}
         fullWidth

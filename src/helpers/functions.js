@@ -1,4 +1,3 @@
-
 //функция для получения данных из хранилища под ключом cart
 export const getLocalStorage = () => {
   const cart = JSON.parse(localStorage.getItem('cart'));
@@ -16,4 +15,9 @@ export const calcTotalPrice = (products) => {
 // ф-ция для подсчета стоимости за одну позицию
 export const calcSubPrice = (product) => {
   return +product.item.price * product.count;
+};
+
+export const getProductsCountInCart = () => {
+  let cart = getLocalStorage();
+  return cart ? cart.products.length : 0;
 };
