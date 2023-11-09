@@ -19,15 +19,15 @@ const style = {
 };
 
 export default function AddCategoryModal(props) {
-  const { open, handleClose } = props;
-  const { createCategory } = useProducts();
-  const [category, setCategory] = React.useState('');
+   const {open, handleClose} = props
+   const [category, setCategory] = React.useState()
+    const {createCategory} = useProducts()
 
-  const handleAdd = () => {
-    const newCategory = { name: category };
-    createCategory(newCategory);
-    handleClose();
-  };
+    const handleAdd = () => {
+        const newCategory = {name: category}
+        createCategory(newCategory)
+        handleClose()
+    }
 
   return (
     <div>

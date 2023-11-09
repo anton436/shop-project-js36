@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "title": "t-shirt 2",
-      "category": "T-shirt",
-      "description": "some description",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 200,
-      "id": 2
-    },
-    {
       "title": "t-shirt 3",
       "category": "T-shirt",
       "description": "some description 3",

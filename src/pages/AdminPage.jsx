@@ -9,7 +9,7 @@ const AdminPage = () => {
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen}>Add Category</Button>
+      <Button variant='contained' onClick={handleOpen}>Add Category</Button>
 
       <AddProduct />
       <AddCategoryModal open={open} handleClose={handleClose} />
