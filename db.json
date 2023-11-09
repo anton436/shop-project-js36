@@ -2,7 +2,7 @@
   "products": [
     {
       "title": "t-shirt 3",
-      "category": "t-shirt",
+      "category": "T-shirt",
       "description": "some description 3",
       "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
       "price": 200,
@@ -10,26 +10,19 @@
     },
     {
       "title": "t-shirt 4",
-      "category": "t-shirt",
+      "category": "T-shirt",
       "description": "some description 4",
       "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
       "price": 202,
       "id": 5
     },
+
     {
-      "title": "tshirt",
-      "category": "ksandsanld",
-      "description": "description",
-      "image": "https://mackweldon.com/cdn/shop/products/M01T10-TN_Front.png?v=1680889907",
-      "price": 100,
-      "id": 6
-    },
-    {
-      "title": "wqewq",
-      "category": "eqwe",
-      "description": "23324",
-      "image": "https://www.helikon-tex.com/media/catalog/product/cache/4/image/500x/17f82f742ffe127f42dca9de82fb58b1/t/s/ts-tsh-co-11.jpg",
-      "price": 23423,
+      "title": "new product",
+      "category": "Hoodie",
+      "description": "ghjkl;",
+      "image": "ghuio",
+      "price": 56789,
       "id": 7
     }
   ],
@@ -41,6 +34,14 @@
     {
       "name": "Hoodie",
       "id": 2
+    },
+    {
+      "name": "Short",
+      "id": 3
+    },
+    {
+      "name": "Hats",
+      "id": 4
     }
   ]
 }

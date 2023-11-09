@@ -5,7 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function CategorySelect() {
+export default function CategorySelect(props) {
+  const { categories, handleInput } = props;
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -19,13 +20,16 @@ export default function CategorySelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
+          name="category"
+          onChange={handleInput}
+          label="Category"
+          defaultValue={''}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {categories.map((item) => (
+            <MenuItem key={item.id} value={item.name}>
+              {item.name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
